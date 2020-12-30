@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -32,11 +32,13 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",        NULL,       NULL,       1<<2,            0,           -1 }, // tag 3
-    { "Wine",        NULL,       NULL,       1<<3,            0,           -1 }, // tag 4
-    { "libreoffice", NULL,       NULL,       1<<4,            0,           -1 }, // tag 5
-    { "Thunderbird", NULL,       NULL,       2,               0,           -1 }, // tag 2
-	{ "Firefox",     NULL,       NULL,       1<<8,            0,           -1 }, // tag 9
+    { "vlc",           NULL,       NULL,       1<<6,            0,           -1 }, // tag 7
+    { "Wine",          NULL,       NULL,       1<<3,            0,           -1 }, // tag 4
+    { "libreoffice",   NULL,       NULL,       1<<4,            0,           -1 }, // tag 5
+    { "Thunderbird",   NULL,       NULL,       2,               0,           -1 }, // tag 2
+    { "Firefox",       NULL,       NULL,       1<<8,            0,           -1 }, // tag 9
+    { "Brave-browser", NULL,       NULL,       1<<8,            0,           -1 }, // tag 9
+    { "systemsettings",NULL,       NULL,       1<<9,            0,           -1 }, // tag 10
 };
 
 /* layout(s) */
@@ -65,7 +67,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "konsole", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
 // volume commands
 static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute"};
@@ -107,6 +109,7 @@ TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+    TAGKEYS(                        XK_0,                      9)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     { MODKEY,                       XK_F7,    spawn,          {.v = upvol   } },
     { MODKEY,                       XK_F6,    spawn,          {.v = downvol } },
