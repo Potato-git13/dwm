@@ -24,21 +24,21 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-    { "vlc",           NULL,       NULL,       1<<6,            0,           -1 }, // tag 7
-    { "Wine",          NULL,       NULL,       1<<3,            0,           -1 }, // tag 4
-    { "libreoffice",   NULL,       NULL,       1<<4,            0,           -1 }, // tag 5
-    { "Thunderbird",   NULL,       NULL,       2,               0,           -1 }, // tag 2
-    { "Firefox",       NULL,       NULL,       1<<8,            0,           -1 }, // tag 9
-    { "Brave-browser", NULL,       NULL,       1<<8,            0,           -1 }, // tag 9
-    { "systemsettings",NULL,       NULL,       1<<9,            0,           -1 }, // tag 10
+	/* class         instance        title      tags mask     isfloating   monitor */
+    { "vlc",           NULL,          NULL,       1<<6,            0,           -1 }, // tag 7
+    { "Wine",          NULL,          NULL,       1<<3,            0,           -1 }, // tag 4
+    { "Thunderbird",   NULL,          NULL,       2,               0,           -1 }, // tag 2
+    { "Firefox",       NULL,          NULL,       1<<8,            0,           -1 }, // tag 9
+    { "Brave-browser", NULL,          NULL,       1<<8,            0,           -1 }, // tag 9
+    { "systemsettings",NULL,          NULL,       1<<9,            0,           -1 }, // tag 10
+    { "Pcmanfm",       NULL,          NULL,       1<<4,            0,           -1 }, // tag 5
 };
 
 /* layout(s) */
@@ -70,10 +70,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
 // volume commands
-static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute"};
-static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute" };
-static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
-
+static const char *upvol[]     = { "amixer", "-q", "set", "Master", "5%+", "unmute"};
+static const char *downvol[]   = { "amixer", "-q", "set", "Master", "5%-", "unmute" };
+static const char *mutevol[]   = { "amixer", "-q", "set", "Master", "mute" };
+static const char *unmutevol[] = { "amixer", "-q", "set", "Master", "unmute" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -101,7 +101,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
-TAGKEYS(                        XK_2,                      1)
+    TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
@@ -111,9 +111,10 @@ TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_9,                      8)
     TAGKEYS(                        XK_0,                      9)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { MODKEY,                       XK_F7,    spawn,          {.v = upvol   } },
-    { MODKEY,                       XK_F6,    spawn,          {.v = downvol } },
-    { MODKEY,                       XK_F5,    spawn,          {.v = mutevol } },
+    { MODKEY,                       XK_F7,    spawn,          {.v = upvol     } },
+    { MODKEY,                       XK_F6,    spawn,          {.v = downvol   } },
+    { MODKEY,                       XK_F5,    spawn,          {.v = mutevol   } },
+    { MODKEY,                       XK_F8,    spawn,          {.v = unmutevol } },
     { MODKEY|ShiftMask,             XK_f,     spawn,          {.v = firefoxcmd } },
 };
 
