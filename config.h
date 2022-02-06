@@ -5,7 +5,7 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10", "fontawesome:size=11" }; // fonts
+static const char *fonts[]          = { "monospace:size=10", "fontawesome:size=8" }; // fonts
 static const char dmenufont[]       = "monospace:size=10"; // dmenu font
 // bg color
 static const char col_gray1[]       = "#222222";
@@ -16,7 +16,7 @@ static const char col_gray3[]       = "#bbbbbb";
 // current tag and window color
 static const char col_gray4[]       = "#eeeeee";
 // top second bar color (defult blue) and active window border color
-static const char col_cyan[]        = "#ffae00";
+static const char col_cyan[]        = "#004a8a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -24,7 +24,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "", "" };
+// 
+static const char *tags[] = { "", "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -32,13 +33,19 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class         instance        title      tags mask     isfloating   monitor */
-    { "vlc",           NULL,          NULL,       1<<6,            0,           -1 }, // tag 7
     { "Wine",          NULL,          NULL,       1<<3,            0,           -1 }, // tag 4
+    { "isleward-client",NULL,         NULL,       1<<3,            0,           -1 }, // tag 4
     { "Thunderbird",   NULL,          NULL,       2,               0,           -1 }, // tag 2
     { "Firefox",       NULL,          NULL,       1<<8,            0,           -1 }, // tag 9
     { "Brave-browser", NULL,          NULL,       1<<8,            0,           -1 }, // tag 9
     { "systemsettings",NULL,          NULL,       1<<9,            0,           -1 }, // tag 10
     { "Pcmanfm",       NULL,          NULL,       1<<4,            0,           -1 }, // tag 5
+    { "thunar",        NULL,          NULL,       1<<4,            0,           -1 }, // tag 5
+    { "discord",       NULL,          NULL,       1<<6,            0,           -1 }, // tag 7
+    { "zoom",          NULL,          NULL,       1<<6,            0,           -1 }, // tag 7
+    { "openshot",      NULL,          NULL,       1<<6,            0,           -1 }, // tag 7
+    { NULL,            "libreoffice", NULL,       1<<4,            0,           -1 }, // tag 5
+    { "keepassxc",     NULL,          NULL,       1<<7,            0,           -1 }, // tag 8
 };
 
 /* layout(s) */
@@ -72,8 +79,7 @@ static const char *firefoxcmd[] = { "firefox", NULL };
 // volume commands
 static const char *upvol[]     = { "amixer", "-q", "set", "Master", "5%+", "unmute"};
 static const char *downvol[]   = { "amixer", "-q", "set", "Master", "5%-", "unmute" };
-static const char *mutevol[]   = { "amixer", "-q", "set", "Master", "mute" };
-static const char *unmutevol[] = { "amixer", "-q", "set", "Master", "unmute" };
+static const char *mutevol[]   = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -114,7 +120,6 @@ static Key keys[] = {
     { MODKEY,                       XK_F7,    spawn,          {.v = upvol     } },
     { MODKEY,                       XK_F6,    spawn,          {.v = downvol   } },
     { MODKEY,                       XK_F5,    spawn,          {.v = mutevol   } },
-    { MODKEY,                       XK_F8,    spawn,          {.v = unmutevol } },
     { MODKEY|ShiftMask,             XK_f,     spawn,          {.v = firefoxcmd } },
 };
 
