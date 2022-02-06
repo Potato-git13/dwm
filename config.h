@@ -34,12 +34,8 @@ static const Rule rules[] = {
 	 */
 	/* class         instance        title      tags mask     isfloating   monitor */
     { "Wine",          NULL,          NULL,       1<<3,            0,           -1 }, // tag 4
-    { "isleward-client",NULL,         NULL,       1<<3,            0,           -1 }, // tag 4
     { "Thunderbird",   NULL,          NULL,       2,               0,           -1 }, // tag 2
     { "Firefox",       NULL,          NULL,       1<<8,            0,           -1 }, // tag 9
-    { "Brave-browser", NULL,          NULL,       1<<8,            0,           -1 }, // tag 9
-    { "systemsettings",NULL,          NULL,       1<<9,            0,           -1 }, // tag 10
-    { "Pcmanfm",       NULL,          NULL,       1<<4,            0,           -1 }, // tag 5
     { "thunar",        NULL,          NULL,       1<<4,            0,           -1 }, // tag 5
     { "discord",       NULL,          NULL,       1<<6,            0,           -1 }, // tag 7
     { "zoom",          NULL,          NULL,       1<<6,            0,           -1 }, // tag 7
@@ -57,7 +53,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle }, 
+	{ "[M]",      monocle },
 };
 
 /* key definitions */
