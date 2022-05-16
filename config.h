@@ -23,8 +23,7 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
-/* tagging */
-// 
+/* tagging */ 
 static const char *tags[] = { "", "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
@@ -35,7 +34,7 @@ static const Rule rules[] = {
 	/* class         instance        title      tags mask     isfloating   monitor */
     { "Wine",          NULL,          NULL,       1<<3,            0,           -1 }, // tag 4
     { "Thunderbird",   NULL,          NULL,       2,               0,           -1 }, // tag 2
-    { "Firefox",       NULL,          NULL,       1<<8,            0,           -1 }, // tag 9
+    { "firefox",       NULL,          NULL,       1<<8,            0,           -1 }, // tag 9
     { "thunar",        NULL,          NULL,       1<<4,            0,           -1 }, // tag 5
     { "discord",       NULL,          NULL,       1<<6,            0,           -1 }, // tag 7
     { "zoom",          NULL,          NULL,       1<<6,            0,           -1 }, // tag 7
