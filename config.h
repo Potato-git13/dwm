@@ -8,15 +8,15 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10", "fontawesome:size=8" }; // fonts
 static const char dmenufont[]       = "monospace:size=10"; // dmenu font
 // bg color
-static const char col_gray1[]       = "#222222";
-// inactive windows border color
-static const char col_gray2[]       = "#444444";
+static const char col_gray1[]       = "#072716";
+// static const char col_gray2[]       = "#444444";
+static const char col_gray2[]       = "#072716";
 // font color
 static const char col_gray3[]       = "#bbbbbb";
 // current tag and window color
 static const char col_gray4[]       = "#eeeeee";
 // top second bar color (defult blue) and active window border color
-static const char col_cyan[]        = "#004a8a";
+static const char col_cyan[]        = "#17894c";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
