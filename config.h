@@ -71,6 +71,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
+static const char *keepasscmd[] = { "keepassxc", NULL};
+static const char *thunderbirdcmd[] = { "thunderbird", NULL };
 // volume commands
 static const char *upvol[]     = { "amixer", "-q", "set", "Master", "5%+", "unmute"};
 static const char *downvol[]   = { "amixer", "-q", "set", "Master", "5%-", "unmute" };
@@ -116,6 +118,8 @@ static Key keys[] = {
     { MODKEY,                       XK_F6,    spawn,          {.v = downvol   } },
     { MODKEY,                       XK_F5,    spawn,          {.v = mutevol   } },
     { MODKEY|ShiftMask,             XK_f,     spawn,          {.v = firefoxcmd } },
+    { MODKEY|ShiftMask,             XK_g,     spawn,          {.v = keepasscmd } },
+    { MODKEY|ShiftMask,             XK_m,     spawn,          {.v = thunderbirdcmd } },
 };
 
 /* button definitions */
